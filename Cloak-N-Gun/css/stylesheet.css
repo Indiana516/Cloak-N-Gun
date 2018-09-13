@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'Infinite Justice';
+    src: url('../fonts/InfiniteJustice.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body
+{
+	color: white;
+	background-color: #4286f4;
+}
+header{
+	font-family:Infinite Justice;
+	font-size:300%;
+	background-image:url("../images/backgroundTitle.jpg");
+	background-position:bottom;
+	padding:.5em;
+}
+.navMenu{
+	padding-left:.5em;
+	padding-bottom:.5em;
+	background-image:url("../images/menu-tab.png");
+	background-repeat:no-repeat;
+}
+ul{
+	min-width: 696px;
+	list-style: none;
+	padding-top: 10px;
+}
+
+li{
+	display: inline;
+	padding-right: 5px;
+	border-right: 1px solid gray
+}
+
+a{
+	color: #a3afff;
+	text-decoration: none;
+}
+
+.selected{
+	color: green;
+}
+
+.lastChild
+{
+	border-right: none;
+}
+.contentContainer{
+	margin:auto;
+	width:70%;
+	padding-left:1.5em;
+	padding-top:1.5em;
+	padding-bottom:1.5em;
+	margin-top:2em;
+	margin-bottom:1em;
+}
+footer{
+	padding-top:.5em;
+	padding-bottom:.5em;
+	padding-left:.5em;
+	background-color:black;
+	font-style:italic;
+}
