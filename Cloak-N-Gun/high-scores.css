@@ -1,0 +1,52 @@
+body
+{
+	color: white;
+	background-color: #ADD8E6;
+	font-size: 22px;
+
+}
+
+main, footer
+{
+	text-align: center;
+}
+
+ul{
+	min-width: 696px;
+	list-style: none;
+	padding-top: 10px;
+}
+
+ul li{
+	display: inline;
+	padding-right: 5px;
+	border-right: 1px solid gray
+}
+
+h1
+{
+	background-color: black;
+	text-align: left;
+	padding-left: 20px;
+}
+
+a{
+	color: brown;
+	text-decoration: none;
+}
+
+img
+{
+   padding:1px;
+   border:1px solid #021a40;
+   background-color:grey;
+}
+
+.selected{
+	color: green;
+}
+
+.lastChild
+{
+	border-right: none;
+}
