@@ -29,7 +29,7 @@ ul{
 	padding-top: 10px;
 }
 
-li{
+ ul li{
 	display: inline;
 	padding-right: 5px;
 	border-right: 1px solid gray
