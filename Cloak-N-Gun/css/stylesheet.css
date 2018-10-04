@@ -40,6 +40,8 @@ a{
 	text-decoration: none;
 }
 
+
+
 .selected{
 	color: green;
 }
@@ -57,6 +59,8 @@ a{
 	margin-top:2em;
 	margin-bottom:1em;
 }
+
+
 footer{
 	padding-top:.5em;
 	padding-bottom:.5em;

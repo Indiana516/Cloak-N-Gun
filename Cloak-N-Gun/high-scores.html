@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>High Scores></title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/stylesheet.css">
+  <link rel="stylesheet" href="css/high-scores.css">
+  <script src="js/data.js" type="text/JavaScript"></script>
+  <script src="js/functions.js" type="text/JavaScript"></script>
 </head>
 
 <body>
@@ -18,19 +22,20 @@
       <li><a href="about.html">About Us</a></li>
     </ul>
   </nav>
-  <section class="contentContainer">
-    <ol>
-      <li>high scores will be retrieved from database using SQL statement</li>
-      <li>list will contain the top ten scores</li>
-      <li>listed in oreder from first to tenth</li>
-      <li>bob</li>
-      <li>seger</li>
-      <li>is</li>
-      <li>the</li>
-      <li>best</li>
-      <li>rock</li>
-      <li>artist</li>
-      <li>!!!!!!!!!!!!!</li>
+  <section class="contentContainer scrollabeScoreTable">
+    <table class="scoreTable">
+      <caption>High Scores</caption>
+      <tr>
+        <th>Rank</th>
+        <th>Score</th>
+        <th>Name</th>
+        <script>
+          for (i = 0; i < highScores.length; i++) {
+            outputScores(highScores[i].rank,highScores[i].score, highScores[i].name);
+          }
+        </script>
+      </tr>
+    </table>
   </section>
   <footer>
     Copyright &copy 2018 MemoryDust
