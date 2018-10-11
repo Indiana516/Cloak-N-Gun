@@ -56,10 +56,5 @@ function actor(options) {
     that.xpos = that.xpos+xMov;
     that.ypos= that.ypos+yMov;
   }
-  that.tryMove(xMov, yMov){
-    var futureX = that.xpos+xMov;
-    var futureY = that.ypos+yMov;
-    if(futureX+that.width > )
-  }
   return that;
 }
