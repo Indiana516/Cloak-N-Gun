@@ -25,9 +25,10 @@ function actor(options) {
   that.xpos = options.xpos;
   that.ypos= options.ypos;
   that.image = options.image;
+  that.loop = options.loop;
 
   that.render = function() {
-    that.context.clearRect(0, 0, that.width, that.height);
+
     that.context.drawImage(
       that.image,
       frameIndex * that.width / numberOfFrames,
@@ -39,9 +40,6 @@ function actor(options) {
       that.width / numberOfFrames,
       that.height);
   };
-
-  that.loop = options.loop;
-
   that.update = function(){
     tickCount+=1;
     if(tickCount>ticksPerFrame){
@@ -57,6 +55,11 @@ function actor(options) {
   that.move = function(xMov, yMov){
     that.xpos = that.xpos+xMov;
     that.ypos= that.ypos+yMov;
+  }
+  that.tryMove(xMov, yMov){
+    var futureX = that.xpos+xMov;
+    var futureY = that.ypos+yMov;
+    if(futureX+that.width > )
   }
   return that;
 }
