@@ -9,8 +9,8 @@
 	<meta charset="utf-8">
 </head>
 <body>
-
-	<?php include __DIR__."/includes/headerBar.inc.php'; ?>
+	<header class="headerTitle">Cloak and Gun</header>
+	<?php include __DIR__.'/includes/navBar.inc.php'; ?>
 	<section class="contentContainer">
 		<section class="mainContent">
 			<canvas id="gameCanvas"></canvas>

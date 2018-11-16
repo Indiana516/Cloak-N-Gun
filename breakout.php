@@ -11,15 +11,7 @@
 </head>
 <body>
 	<header class="headerTitle">Cloak and Gun</header>
-	<nav class="navMenu">
-		<ul>
-			<li><a href="main-page.html">Home</a></li>
-			<li><a href="high-scores.html">High Scores</a></li>
-			<li><a href="about.html">About Us</a></li>
-      <li><a href="FAQ.html">FAQ</a></li>
-			<li><a href="breakout.html">Breakout</a></li>
-		</ul>
-	</nav>
+	<?php include __DIR__.'/includes/navBar.inc.php'; ?>
 <section class="contentContainer">
 	<section class="mainContent">
 <canvas id="gameCanvas"></canvas>
