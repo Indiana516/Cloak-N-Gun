@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'includes/top.inc.php'?>=\
+include 'includes/top.inc.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +15,7 @@ include 'includes/top.inc.php'?>=\
 	<div class="logoBox">
 		<img src="#" alt="Logo Placeholder">
 	</div>
-        <p>Webpage=/ and Game Developed by: Braxton Harrison, Caleb Nannie, Evan Baker</p>
+        <p>Webpage and Game Developed by: Braxton Harrison, Caleb Nannie, Evan Baker</p>
 		<br>
         <p>Emails: <a href="mailto:memorydust@gmail.com">memorydust@gmail.com</a></p>
 		<br>
