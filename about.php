@@ -13,7 +13,6 @@
 	<div class="logoBox">
 		<img src="#" alt="Logo Placeholder">
 	</div>
-
         <p>Webpage and Game Developed by: Braxton Harrison, Caleb Nannie, Evan Baker</p>
 		<br>
         <p>Emails: <a href="mailto:memorydust@gmail.com">memorydust@gmail.com</a></p>
@@ -21,20 +20,19 @@
 		<p>Phone 111-234-7547</p>
 		<br>
 
-		<form method="POST">
+		<form>
 				<p>
 					Email:
 				</p>
-				<input type='text' placeholder='Email' name="email"/>
+				<input type='text' placeholder='Email'/>
 				<p>
 					Name:
 				</p>
-				<input type='text' placeholder='Name' name="name"/>
+				<input type='text' placeholder='Name' />
 				<p>
 					Message:
 				</p>
-				<input type='text' placeholder='Message' name="message" />
-				<button type="submit" value="Submit" >Submit</button>
+				<input type='text' placeholder='Message' />
 		</form>
 	</main>
 	<footer>
