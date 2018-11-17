@@ -21,19 +21,20 @@
 		<p>Phone 111-234-7547</p>
 		<br>
 
-		<form>
+		<form method="POST">
 				<p>
 					Email:
 				</p>
-				<input type='text' placeholder='Email'/>
+				<input type='text' placeholder='Email' name="email"/>
 				<p>
 					Name:
 				</p>
-				<input type='text' placeholder='Name' />
+				<input type='text' placeholder='Name' name="name"/>
 				<p>
 					Message:
 				</p>
-				<input type='text' placeholder='Message' />
+				<input type='text' placeholder='Message' name="message" />
+				<button type="submit" value="Submit" >Submit</button>
 		</form>
 	</main>
 	<footer>
