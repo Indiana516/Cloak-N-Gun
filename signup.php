@@ -1,4 +1,4 @@
-<?php include 'includes/navBar.inc.php'?>
+<?php include 'includes/top.inc.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="css/reset.css">
@@ -13,10 +13,6 @@
 	<?php buildHeader("Sign Up");?>
 	<section class="contentContainer">
 		<section class="mainContent">
-			<canvas id="gameCanvas"></canvas>
-			<script>
-				initGame();
-			</script>
 		</section>
 	</section>
 	<footer>

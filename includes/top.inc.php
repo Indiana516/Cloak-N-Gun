@@ -12,5 +12,4 @@ function buildHeader($headerTitle){
   echo "</ul>";
   echo "</nav>";
 }
-
 ?>
