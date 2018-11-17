@@ -13,6 +13,22 @@
 	<?php buildHeader("Sign Up");?>
 	<section class="contentContainer">
 		<section class="mainContent">
+      <form method="POST">
+  				<p>
+  					Name:
+  				</p>
+  				<input type='text' name = "name" placeholder='Name'/>
+          <p>
+            Email:
+          </p>
+          <input type='text' name = "email" placeholder='Email'/>
+  				<p>
+  					Password:
+  				</p>
+  				<input type='text' name = "password" placeholder='Password'/>
+          <button type="submit" value="Submit">Submit</button>
+
+  		</form>
 		</section>
 	</section>
 	<footer>
