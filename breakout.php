@@ -1,3 +1,4 @@
+<?php include 'includes/navBar.inc.php'; ?>
 <!DOCTYPE html>
 <html lang ="en">
 <link rel="stylesheet" href="css/reset.css">
@@ -10,8 +11,8 @@
     <title>Breakout Placeholder game</title>
 </head>
 <body>
-	<header class="headerTitle">Cloak and Gun</header>
-	<?php include __DIR__.'/includes/navBar.inc.php'; ?>
+  <?php buildHeader("Breakout");?>
+
 <section class="contentContainer">
 	<section class="mainContent">
 <canvas id="gameCanvas"></canvas>

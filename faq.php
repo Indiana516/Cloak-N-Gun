@@ -1,6 +1,6 @@
+<?php include 'includes/navBar.inc.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/stylesheet.css">
@@ -10,10 +10,7 @@
 </head>
 
 <body>
-  <header>
-    FAQ
-  </header>
-  <?php include __DIR__.'/includes/navBar.inc.php'; ?>
+  <?php buildHeader("Frequently Asked Questions");?>
 
   <main>
     <table>

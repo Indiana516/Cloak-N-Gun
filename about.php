@@ -1,3 +1,4 @@
+<?php include 'includes/navBar.inc.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,7 @@
   <title>About</title>
 </head>
 <body>
-	<header>
-		About Us
-	</header>
-	<?php include __DIR__.'/includes/navBar.inc.php'; ?>
+	<?php buildHeader("About Us");?>
 	<main>
 	<div class="logoBox">
 		<img src="#" alt="Logo Placeholder">

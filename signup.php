@@ -1,4 +1,4 @@
-<?php include 'includes/navBar.inc.php'; ?>
+<?php include 'includes/navBar.inc.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="css/reset.css">
@@ -10,7 +10,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php buildHeader("Cloak and Gun");?>
+	<?php buildHeader("Sign Up");?>
 	<section class="contentContainer">
 		<section class="mainContent">
 			<canvas id="gameCanvas"></canvas>

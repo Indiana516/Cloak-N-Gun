@@ -1,6 +1,6 @@
+<?php include 'includes/navBar.inc.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>High Scores</title>
@@ -10,12 +10,8 @@
   <script src="js/data.js" type="text/JavaScript"></script>
   <script src="js/functions.js" type="text/JavaScript"></script>
 </head>
-
 <body>
-  <header>
-    <h1>High Scores</h1>
-  </header>
-  <?php include __DIR__.'/includes/navBar.inc.php'; ?>
+  <?php buildHeader("High Scores");?>
   <section class="contentContainer scrollabeScoreTable">
     <table class="scoreTable">
       <caption>High Scores</caption>
