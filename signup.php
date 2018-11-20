@@ -13,7 +13,7 @@
 	<?php buildHeader("Sign Up");?>
 	<section class="contentContainer">
 		<section class="mainContent">
-      <form method="POST">
+      <form method="POST" action="test.php">
   				<p>
   					Name:
   				</p>
