@@ -14,7 +14,7 @@
 	<?php buildHeader("Cloak and Gun");?>
 	<section class="contentContainer">
 		<section class="mainContent">
-			<canvas id="gameCanvas"></canvas>
+			<canvas id="gameCanvas" width="600" height="360"></canvas>
 			<script src="js/runner.js" type="text/JavaScript">
 			startGame();</script>
 			<!-- <script>
