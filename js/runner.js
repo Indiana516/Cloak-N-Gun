@@ -11,12 +11,12 @@
   var assetLoader = (function() {
     // images dictionary
     this.imgs        = {
-      'bg'            : 'imgs/bg.png',
-      'sky'           : 'imgs/sky.png',
-      'backdrop'      : 'imgs/backdrop.png',
-      'backdrop2'     : 'imgs/backdrop_ground.png',
-      'grass'         : 'imgs/grass.png',
-      'avatar_normal' : 'imgs/normal_walk.png'
+      'bg'            : './images/bg.png',
+      'sky'           : './images/sky.png',
+      'backdrop'      : './images/backdrop.png',
+      'backdrop2'     : './images/backdrop_ground.png',
+      'grass'         : './images/grass.png',
+      'avatar_normal' : './images/normal_walk.png'
     };
 
     var assetsLoaded = 0;

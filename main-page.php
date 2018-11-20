@@ -5,8 +5,8 @@
 <link rel="stylesheet" href="css/stylesheet.css">
 <link rel="stylesheet" href="css/game.css">
 <script src="js/objects.js" type="text/JavaScript"></script>
-<script src="js/game.js" type="text/JavaScript"></script>
-<!-- <script src="js/runner.js" type="text/JavaScript"></script> -->
+<!-- <script src="js/game.js" type="text/JavaScript"></script> -->
+
 <head>
 	<meta charset="utf-8">
 </head>
@@ -15,10 +15,12 @@
 	<section class="contentContainer">
 		<section class="mainContent">
 			<canvas id="gameCanvas"></canvas>
-			<script>
+			<script src="js/runner.js" type="text/JavaScript">
+			startGame();</script>
+			<!-- <script>
 				// initGame();
-				startGame();
-			</script>
+				startGame()
+			</script> -->
 		</section>
 	</section>
 	<footer>
