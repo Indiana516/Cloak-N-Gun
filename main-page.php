@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="css/game.css">
 <script src="js/objects.js" type="text/JavaScript"></script>
 <script src="js/game.js" type="text/JavaScript"></script>
+<!-- <script src="js/runner.js" type="text/JavaScript"></script> -->
 <head>
 	<meta charset="utf-8">
 </head>
@@ -15,7 +16,8 @@
 		<section class="mainContent">
 			<canvas id="gameCanvas"></canvas>
 			<script>
-				initGame();
+				// initGame();
+				startGame();
 			</script>
 		</section>
 	</section>
