@@ -16,7 +16,7 @@
       'backdrop'      : './images/backdrop.png',
       'backdrop2'     : './images/backdrop_ground.png',
       'grass'         : './images/grass.png',
-      'avatar_normal' : './images/normal_walk.png'
+      'avatar_normal' : './images/walk.png'
     };
 
     var assetsLoaded = 0;
@@ -213,7 +213,7 @@
     player.width  = 60;
     player.height = 96;
     player.speed  = 6;
-    player.sheet  = new SpriteSheet('imgs/normal_walk.png', player.width, player.height);
+    player.sheet  = new SpriteSheet('./images/walk.png', player.width, player.height);
     player.anim   = new Animation(player.sheet, 4, 0, 15);
 
 
