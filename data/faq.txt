@@ -1,0 +1,4 @@
+How to play?; Use the SPACE Bar to jump over obstacles as they come to you.
+How do I submit my score?; When you complete your run of the Game, click submit score.
+What did you make this game in?; The game is made using JavaScript.
+How do you get good?; You must first Shoutout to Simpleflips.
