@@ -1,4 +1,6 @@
-<?php include 'includes/top.inc.php'; ?>
+<?php include 'includes/top.inc.php';
+      include 'databaseFunctions.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,17 +14,20 @@
 </head>
 <body>
   <?php buildHeader("High Scores");?>
-  <section class="contentContainer scrollabeScoreTable">
+  <section class="contentContainer scrollableScoreTable">
     <table class="scoreTable">
       <caption>High Scores</caption>
       <tr>
-        <th>Rank</th>
-        <th>Score</th>
-        <th>Name</th>
-        <script>
-          for (i = 0; i < highScores.length; i++) {
-            outputScores(highScores[i].rank,highScores[i].score, highScores[i].name);
-          }
+      <?php
+
+        function makeQuery(){
+          return "SELECT username, highscore from highscores
+          ORDER BY highscore DESC";
+        }
+        $result = mysqli_query($conn, makeQuery());
+        outputResults($result);
+
+      ?>
         </script>
       </tr>
     </table>

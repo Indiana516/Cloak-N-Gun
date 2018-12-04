@@ -10,7 +10,7 @@ tr{
 
 }
 
-.scrollabeScoreTable{
+.scrollableScoreTable{
   overflow: scroll;
   height: 400px;
 }
