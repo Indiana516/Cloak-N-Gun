@@ -18,7 +18,6 @@ function outputResults($result){
   }
   else{
     if (mysqli_num_rows($result) > 0) {
-        echo "<table class='mdl-data-table  mdl-shadow--2dp'>";
         for($i = 0; $i<sizeof($attList);$i++){
           echo "<th>".$attList[$i]."</th>";
         }
@@ -32,7 +31,6 @@ function outputResults($result){
           }
           echo "</tr>";
         }
-        echo "</table>";
       }
       else{echo "No results!";}
   }

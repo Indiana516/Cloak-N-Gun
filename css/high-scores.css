@@ -1,13 +1,7 @@
 td, th{
-
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
-    border: 1px solid white;
-}
-
-tr{
-
 }
 
 .scrollableScoreTable{
@@ -18,5 +12,6 @@ tr{
 .scoreTable{
   border: 1px solid white;
   margin: 0px auto;
-  width: 100%;
+  table-layout: fixed;
+  width: 500%;
 }

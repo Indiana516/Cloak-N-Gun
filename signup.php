@@ -70,6 +70,7 @@
 				if (strlen($password)>20){
 					return "Error, password is too long.";
 				}
+				$_SESSION['username'] = $name;
 				echo mysqli_error($conn);
 				return "good";
 			}
