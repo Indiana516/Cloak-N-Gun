@@ -1,40 +1,29 @@
 (function () {
-  // define variables
+
   var canvas = document.getElementById('gameCanvas');
   var ctx = canvas.getContext('2d');
   var player, score, stop, ticker;
   var ground = [], water = [], enemies = [], environment = [];
 
-  // platform variables
+
   var platformHeight, platformLength, gapLength;
   var platformWidth = 32;
   var platformBase = canvas.height - platformWidth;  // bottom row of the game
   var platformSpacer = 64;
 
-  /**
-   * Get a random number between range
-   * @param {integer}
-   * @param {integer}
-   */
+
   function rand(low, high) {
     return Math.floor( Math.random() * (high - low + 1) + low );
   }
 
-  /**
-   * Bound a number between range
-   * @param {integer} num - Number to bound
-   * @param {integer}
-   * @param {integer}
-   */
+
   function bound(num, low, high) {
     return Math.max( Math.min(num, high), low);
   }
 
-  /**
-   * Asset pre-loader object. Loads all images
-   */
+
   var assetLoader = (function() {
-    // images dictionary
+
     this.imgs        = {
       'bg'            : './images/bg.png',
       'sky'           : './images/sky.png',
@@ -55,17 +44,13 @@
       'tiger'         : './images/tiger.png'
     };
 
-    var assetsLoaded = 0;                                // how many assets have been loaded
-    var numImgs      = Object.keys(this.imgs).length;    // total number of image assets
-    this.totalAssest = numImgs;                          // total number of assets
+    var assetsLoaded = 0;
+    var numImgs      = Object.keys(this.imgs).length;
+    this.totalAssest = numImgs;
 
-    /**
-     * Ensure all assets are loaded before using them
-     * @param {number} dic  - Dictionary name ('imgs', 'sounds', 'fonts')
-     * @param {number} name - Asset name in the dictionary
-     */
+
     function assetLoaded(dic, name) {
-      // don't count assets that have already loaded
+
       if (this[dic][name].status !== 'loading') {
         return;
       }
@@ -73,25 +58,23 @@
       this[dic][name].status = 'loaded';
       assetsLoaded++;
 
-      // finished callback
+
       if (assetsLoaded === this.totalAssest && typeof this.finished === 'function') {
         this.finished();
       }
     }
 
-    /**
-     * Create assets, set callback for asset loading, set asset source
-     */
+
     this.downloadAll = function() {
       var _this = this;
       var src;
 
-      // load images
+
       for (var img in this.imgs) {
         if (this.imgs.hasOwnProperty(img)) {
           src = this.imgs[img];
 
-          // create a closure for event binding
+
           (function(_this, img) {
             _this.imgs[img] = new Image();
             _this.imgs[img].status = 'loading';
@@ -114,12 +97,7 @@
     startGame();
   }
 
-  /**
-   * Creates a Spritesheet
-   * @param {string} - Path to the image.
-   * @param {number} - Width (in px) of each frame.
-   * @param {number} - Height (in px) of each frame.
-   */
+
   function SpriteSheet(path, frameWidth, frameHeight) {
     this.image = new Image();
     this.frameWidth = frameWidth;
@@ -134,13 +112,7 @@
     this.image.src = path;
   }
 
-  /**
-   * Creates an animation from a spritesheet.
-   * @param {SpriteSheet} - The spritesheet used to create the animation.
-   * @param {number}      - Number of frames to wait for before transitioning the animation.
-   * @param {array}       - Range or sequence of frame numbers for the animation.
-   * @param {boolean}     - Repeat the animation once completed.
-   */
+
   function Animation(spritesheet, frameSpeed, startFrame, endFrame) {
 
     var animationSequence = [];  // array holding the order of the animation
@@ -151,26 +123,19 @@
     for (var frameNumber = startFrame; frameNumber <= endFrame; frameNumber++)
       animationSequence.push(frameNumber);
 
-    /**
-     * Update the animation
-     */
     this.update = function() {
 
-      // update to the next frame if it is time
+
       if (counter == (frameSpeed - 1))
         currentFrame = (currentFrame + 1) % animationSequence.length;
 
-      // update the counter
+
       counter = (counter + 1) % frameSpeed;
     };
 
-    /**
-     * Draw the current frame
-     * @param {integer} x - X position to draw
-     * @param {integer} y - Y position to draw
-     */
+
     this.draw = function(x, y) {
-      // get the row and col of the frame
+
       var row = Math.floor(animationSequence[currentFrame] / spritesheet.framesPerRow);
       var col = Math.floor(animationSequence[currentFrame] % spritesheet.framesPerRow);
 
@@ -183,17 +148,14 @@
     };
   }
 
-  /**
-   * Create a parallax background
-   */
+
+    //Create a background
   var background = (function() {
     var sky   = {};
     var backdrop = {};
     var backdrop2 = {};
 
-    /**
-     * Draw the backgrounds to the screen at different speeds
-     */
+
     this.draw = function() {
       ctx.drawImage(assetLoader.imgs.bg, 0, 0);
 
@@ -221,9 +183,8 @@
         backdrop2.x = 0;
     };
 
-    /**
-     * Reset background to zero
-     */
+
+    //Reset background to zero
     this.reset = function()  {
       sky.x = 0;
       sky.y = 0;
@@ -244,13 +205,7 @@
     };
   })();
 
-  /**
-   * A vector for 2d space.
-   * @param {integer} x - Center x coordinate.
-   * @param {integer} y - Center y coordinate.
-   * @param {integer} dx - Change in x.
-   * @param {integer} dy - Change in y.
-   */
+   // A 2D vector for actors in game.
   function Vector(x, y, dx, dy) {
     // position
     this.x = x || 0;
@@ -260,19 +215,13 @@
     this.dy = dy || 0;
   }
 
-  /**
-   * Advance the vectors position by dx,dy
-   */
+
   Vector.prototype.advance = function() {
     this.x += this.dx;
     this.y += this.dy;
   };
 
-  /**
-   * Get the minimum distance between two vectors
-   * @param {Vector}
-   * @return minDist
-   */
+  //Get minimum distance between two actor vectors
   Vector.prototype.minDist = function(vec) {
     var minDist = Infinity;
     var max     = Math.max( Math.abs(this.dx), Math.abs(this.dy),
@@ -298,23 +247,21 @@
     return Math.sqrt(minDist);
   };
 
-  /**
-   * The player object
-   */
+  //Creates player
   var player = (function(player) {
     // add properties directly to the player imported object
-    player.width     = 60;//60
-    player.height    = 60;//96
+    player.width     = 60; //image width divided by number sprites in row
+    player.height    = 60;// image height divided by number of sprites in column
     player.speed     = 6;
 
-    // jumping
+    // jumping mechanics
     player.gravity   = 1;
     player.dy        = 0;
     player.jumpDy    = -10;
     player.isFalling = false;
     player.isJumping = false;
 
-    // spritesheets
+    // spritesheet extraction
     player.sheet     = new SpriteSheet('./images/walk3.png', player.width, player.height);
     player.walkAnim  = new Animation(player.sheet, 4, 0, 15);
     player.jumpAnim  = new Animation(player.sheet, 4, 15, 15);
@@ -325,9 +272,7 @@
 
     var jumpCounter = 0;  // how long the jump button can be pressed down
 
-    /**
-     * Update the player's position and animation
-     */
+    /
     player.update = function() {
 
       // jump if not currently jumping or falling
@@ -366,16 +311,12 @@
       player.anim.update();
     };
 
-    /**
-     * Draw the player at it's current position
-     */
+    //draw PC current position
     player.draw = function() {
       player.anim.draw(player.x, player.y);
     };
 
-    /**
-     * Reset the player's position
-     */
+
     player.reset = function() {
       player.x = 64;
       player.y = 250;
@@ -384,12 +325,7 @@
     return player;
   })(Object.create(Vector.prototype));
 
-  /**
-   * Sprites are anything drawn to the screen (ground, enemies, etc.)
-   * @param {integer} x - Starting x position of the player
-   * @param {integer} y - Starting y position of the player
-   * @param {string} type - Type of sprite
-   */
+  //function for handling sprite behavior
   function Sprite(x, y, type) {
     this.x      = x;
     this.y      = y;
@@ -418,10 +354,7 @@
   }
   Sprite.prototype = Object.create(Vector.prototype);
 
-  /**
-   * Get the type of a platform based on platform height
-   * @return Type of platform
-   */
+  //desides platform type based on height
   function getType() {
     var type;
     switch (platformHeight) {
@@ -446,9 +379,7 @@
     return type;
   }
 
-  /**
-   * Update all ground position and draw. Also check for collision against the player.
-   */
+  //animates ground and stops PC from falling through platforms
   function updateGround() {
     // animate ground
     player.isFalling = true;
@@ -474,9 +405,7 @@
     }
   }
 
-  /**
-   * Update all water position and draw.
-   */
+
   function updateWater() {
     // animate water
     for (var i = 0; i < water.length; i++) {
@@ -492,9 +421,6 @@
     }
   }
 
-  /**
-   * Update all environment position and draw.
-   */
   function updateEnvironment() {
     // animate environment
     for (var i = 0; i < environment.length; i++) {
@@ -508,9 +434,7 @@
     }
   }
 
-  /**
-   * Update all enemies position and draw. Also check for collision against the player.
-   */
+  //Animates enemies and checks for PC collison for game over
   function updateEnemies() {
     // animate enemies
     for (var i = 0; i < enemies.length; i++) {
@@ -529,9 +453,7 @@
     }
   }
 
-  /**
-   * Update the players position and draw
-   */
+
   function updatePlayer() {
     player.update();
     player.draw();
@@ -542,14 +464,12 @@
     }
   }
 
-  /**
-   * Spawn new sprites off screen
-   */
+  //Spawn sprites offscreen before they roll into canvas
   function spawnSprites() {
     // increase score
     score++;
 
-    // first create a gap
+    //create a gap
     if (gapLength > 0) {
       gapLength--;
     }
@@ -570,7 +490,7 @@
       // add random enemies
       spawnEnemySprites();
     }
-    // start over
+
     else {
       // increase gap length every speed increase of 4
       gapLength = rand(player.speed - 2, player.speed);
@@ -580,9 +500,7 @@
     }
   }
 
-  /**
-   * Spawn new environment sprites off screen
-   */
+//Spawn environment sprites offscreen before they roll onto canvas
   function spawnEnvironmentSprites() {
     if (score > 40 && rand(0, 20) === 0 && platformHeight < 3) {
       if (Math.random() > 0.5) {
@@ -607,9 +525,7 @@
     }
   }
 
-  /**
-   * Spawn new enemy sprites off screen
-   */
+  //spawn enemy sprites offscreen
   function spawnEnemySprites() {
     if (score > 100 && Math.random() > 0.96 && enemies.length < 3 && platformLength > 5 &&
         (enemies.length ? canvas.width - enemies[enemies.length-1].x >= platformWidth * 3 ||
@@ -622,9 +538,7 @@
     }
   }
 
-  /**
-   * Game loop
-   */
+  //main game loop
   function animate() {
     if (!stop) {
       requestAnimFrame( animate );
@@ -712,9 +626,8 @@
             };
   })();
 
-  /**
-   * Start the game - reset all variables and entities, spawn ground and water.
-   */
+
+   //Start the game - reset all variables and creating ground and water
   function startGame() {
     document.getElementById('game-over').style.display = 'none';
     ground = [];
@@ -744,9 +657,7 @@
     animate();
   }
 
-  /**
-   * End the game and restart
-   */
+  //End the game and display the restart button and score
   function gameOver() {
     stop = true;
     document.getElementById('game-over').style.display = 'block';

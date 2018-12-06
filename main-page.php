@@ -4,8 +4,6 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/stylesheet.css">
 <link rel="stylesheet" href="css/game.css">
-<script src="js/objects.js" type="text/JavaScript"></script>
-<!-- <script src="js/game.js" type="text/JavaScript"></script> -->
 
 <head>
 	<meta charset="utf-8">
@@ -17,14 +15,12 @@
 			<canvas id="gameCanvas" width="600" height="480"></canvas>
 			<div id="game-over">
       <a href="javascript:void(0);" class="restart" id="restart">Try again?</a>
+			<p>Score:</p>
 			<p id="score"></p>
     </div>
 			<script src="js/runner.js" type="text/JavaScript">
-			startGame();</script>
-			<!-- <script>
-				// initGame();
-				startGame()
-			</script> -->
+			startGame();
+		</script>
 		</section>
 	</section>
 	<footer>
