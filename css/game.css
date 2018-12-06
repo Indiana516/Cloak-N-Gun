@@ -6,3 +6,8 @@
 	height:100%;
 	width:auto;
 }
+#restart{
+	border-style:solid;
+	background-color: red;
+	color: black;
+}
