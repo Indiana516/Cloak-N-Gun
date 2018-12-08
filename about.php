@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'includes/top.inc.php'?>
 <!DOCTYPE html>
 <html lang="en">

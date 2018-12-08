@@ -15,7 +15,7 @@
 	<?php buildHeader("Sign Up");?>
 	<section class="contentContainer">
 		<section class="mainContent">
-      		<form method="get">
+      		<form method="post">
   				<p>
   					Name:
   				</p>
@@ -25,24 +25,13 @@
   				</p>
   				<input type='text' name = "password" placeholder='Password'/>
           <input type="submit" value="Log In"><br><br>
-
-
   		</form>
 			<?php
-			if(isset($_GET["name"])&&isset($_GET["password"])){
-        $name = $_GET["name"];
-        $password = $_GET["password"];
-        $result = mysqli_query($conn,
-        "SELECT * FROM highscores
-        WHERE username = '$name' AND password='$password'");
-				if($result&&mysqli_num_rows($result) > 0){
-          $_SESSION['username'] = $name;
-          echo "signed in!";
-          unset($_GET['username']);
-          unset($_GET['password']);
-				}
-				else{echo validateInfo($conn);}
+			if(isset($_POST["name"])&&isset($_POST["password"])){
+				signIn($_POST['name'],$_POST['password']);
+				header("Refresh:0");
 			}
+
 			?>
 		</section>
 	</section>

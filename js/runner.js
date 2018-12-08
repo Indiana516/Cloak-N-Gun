@@ -192,7 +192,7 @@
 
       backdrop.x = 0;
       backdrop.y = 0;
-      backdrop.speed = 0.4;
+      backdrop.speed = 0.2;
 
       backdrop2.x = 0;
       backdrop2.y = 0;
@@ -272,7 +272,7 @@
 
     var jumpCounter = 0;  // how long the jump button can be pressed down
 
-    
+
     player.update = function() {
 
       // jump if not currently jumping or falling

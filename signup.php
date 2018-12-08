@@ -43,6 +43,7 @@
 					"INSERT INTO highscores (username, password, highscore, email)
 					VALUES ('$name','$password',0,'$email')"
 					);
+					signIn($name, $password);
 				}
 				else{echo validateInfo($conn);}
 			}
