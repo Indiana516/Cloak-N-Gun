@@ -16,11 +16,12 @@
 			<div id="game-over">
       <a href="javascript:void(0);" class="restart" id="restart">Try again?</a>
 			<p>Score:</p>
-			<p id="score"></p>
+			<input type="text" id="score"readonly>
     </div>
 			<script src="js/runner.js" type="text/JavaScript">
 			startGame();
 		</script>
+
 		</section>
 	</section>
 	<footer>

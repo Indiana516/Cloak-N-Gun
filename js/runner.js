@@ -272,7 +272,7 @@
 
     var jumpCounter = 0;  // how long the jump button can be pressed down
 
-    
+
     player.update = function() {
 
       // jump if not currently jumping or falling
@@ -661,7 +661,7 @@
   function gameOver() {
     stop = true;
     document.getElementById('game-over').style.display = 'block';
-    document.getElementById("score").innerHTML=score;
+    document.getElementById("score").value=score;
   }
 
   document.getElementById('restart').addEventListener('click', startGame);
