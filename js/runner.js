@@ -192,7 +192,7 @@
 
       backdrop.x = 0;
       backdrop.y = 0;
-      backdrop.speed = 0.4;
+      backdrop.speed = 0.2;
 
       backdrop2.x = 0;
       backdrop2.y = 0;

@@ -43,6 +43,7 @@
 					"INSERT INTO highscores (username, password, highscore, email)
 					VALUES ('$name','$password',0,'$email')"
 					);
+					signIn($name, $password);
 				}
 				else{echo validateInfo($conn);}
 			}
@@ -70,6 +71,7 @@
 				if (strlen($password)>20){
 					return "Error, password is too long.";
 				}
+				$_SESSION['username'] = $name;
 				echo mysqli_error($conn);
 				return "good";
 			}

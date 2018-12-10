@@ -11,7 +11,6 @@
 
 <body>
   <?php buildHeader("Frequently Asked Questions");?>
-
   <main>
     <table>
       <?php
