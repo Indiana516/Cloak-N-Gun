@@ -19,9 +19,10 @@ function buildHeader($headerTitle){
       $highscore = $_SESSION['highscore'];
     }
     echo "<span>".$_SESSION['username']." -- High Score: ".$highscore."</span>";
+    echo "<a href='signout.php'>  (Logout)</a>";
   }
   else{
-    echo "Login";
+    echo "<a href='signin.php'>Login</a>";
   }
   echo "</nav>";
 

@@ -1,4 +1,6 @@
-<?php include 'includes/top.inc.php'?>
+<?php include 'includes/top.inc.php';
+			include 'databaseFunctions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="css/reset.css">
@@ -9,7 +11,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<?php buildHeader("Cloak and Gun");?>
+	<?php buildHeader("Frost Runner");?>
 	<section class="contentContainer">
 		<section class="mainContent">
 			<canvas id="gameCanvas" width="600" height="480"></canvas>
@@ -17,13 +19,19 @@
       <a href="javascript:void(0);" class="restart" id="restart">Try again?</a>
 			<form method="post">
 				<p>Score:</p>
-				<input type="text" name="highscore_current" id="score"readonly> 
-				<input type="submit">
+				<input type="text" name="highscore_current" id="score"readonly>
+				<input name="save" type="submit">
 			</form>
     </div>
 			<script src="js/runner.js" type="text/JavaScript">
 			startGame();
-		</script>
+			</script>
+			<?php
+				if(isset($_POST['highscore_current'])&&$_SESSION['highscore_current']<$_POST['highscore_current']){
+					tryUpdateHighScore($_POST['highscore_current']);
+					header("Refresh:0");
+				}
+			?>
 
 		</section>
 	</section>
