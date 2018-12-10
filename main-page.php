@@ -15,8 +15,11 @@
 			<canvas id="gameCanvas" width="600" height="480"></canvas>
 			<div id="game-over">
       <a href="javascript:void(0);" class="restart" id="restart">Try again?</a>
-			<p>Score:</p>
-			<input type="text" id="score"readonly>
+			<form method="post">
+				<p>Score:</p>
+				<input type="text" name="highscore_current" id="score"readonly> 
+				<input type="submit">
+			</form>
     </div>
 			<script src="js/runner.js" type="text/JavaScript">
 			startGame();
