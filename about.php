@@ -1,5 +1,6 @@
 <?php
-include 'includes/top.inc.php'?>
+include 'includes/top.inc.php';
+include 'databaseFunctions.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@ include 'includes/top.inc.php'?>
 		<p>Phone 111-234-7547</p>
 		<br>
 
-		<form method="POST" action="test.php">
+		<form method="get">
 				<p>
 					Email:
 				</p>
@@ -36,6 +37,18 @@ include 'includes/top.inc.php'?>
 				<input type='text' placeholder='Message' name="message" />
 				<button type="submit" value="Submit">Submit</button>
 			</form>
+
+			<?php
+			if(isset($_GET["name"])&&isset($_GET["email"])&&isset($_GET["message"])){
+				$name = $_GET["name"];
+				$email = $_GET["email"];
+				$message =$_GET["message"];
+				$result = mysqli_query($conn,
+				"INSERT INTO messages (name, email, message)
+				VALUES ('$name','$email','$message')"
+				);
+				echo "<p>Message sent!</p>";
+			} ?>
 	<footer>
 	Copyright &copy 2018 MemoryDust
 	</footer>
