@@ -13,11 +13,11 @@ include 'databaseFunctions.php'?>
 	<?php buildHeader("About Us");?>
 	<main>
 	<div class="logoBox">
-		<img src="#" alt="Logo Placeholder">
+		<img src="./images/MemoryDustLogo.png" alt="Logo Placeholder">
 	</div>
         <p>Webpage and Game Developed by: Braxton Harrison, Caleb Nannie, Evan Baker</p>
 		<br>
-        <p>Emails: <a href="mailto:memorydust@gmail.com">memorydust@gmail.com</a></p>
+        <p>Email: <a href="mailto:memorydust@gmail.com">memorydust@gmail.com</a></p>
 		<br>
 		<p>Phone 111-234-7547</p>
 		<br>
